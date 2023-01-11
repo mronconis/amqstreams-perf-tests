@@ -1,0 +1,9 @@
+---
+apiVersion: operators.coreos.com/v1
+kind: OperatorGroup
+metadata:
+  name: perf-test--og
+  namespace: amqstreams
+spec:
+  targetNamespaces:
+  - amqstreams

@@ -1,0 +1,49 @@
+kind: KafkaUser
+apiVersion: kafka.strimzi.io/v1beta2
+metadata:
+  name: perf-test-user
+  labels:
+    strimzi.io/cluster: perf-test-cluster
+  namespace: amqstreams
+spec:
+  authentication:
+    type: tls
+  authorization:
+    type: simple
+    acls:
+      - resource:
+          type: topic
+          name: perf-test-topic
+          patternType: literal
+        operation: Read
+        host: '*'
+      - resource:
+          type: topic
+          name: perf-test-topic
+          patternType: literal
+        operation: Describe
+        host: '*'
+      - resource:
+          type: group
+          name: perf-test-group
+          patternType: literal
+        operation: Read
+        host: '*'
+      - resource:
+          type: topic
+          name: perf-test-topic
+          patternType: literal
+        operation: Write
+        host: '*'
+      - resource:
+          type: topic
+          name: perf-test-topic
+          patternType: literal
+        operation: Create
+        host: '*'
+      - resource:
+          type: topic
+          name: perf-test-topic
+          patternType: literal
+        operation: Describe
+        host: '*'

@@ -1,0 +1,14 @@
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaTopic
+metadata:
+  name: perf-test-topic
+  labels:
+    strimzi.io/cluster: perf-test-cluster
+  namespace: amqstreams
+spec:
+  config:
+    retention.ms: 86400000
+    min.insync.replicas: 2
+  partitions: 16
+  replicas: 3
+  topicName: perf-test-topic
